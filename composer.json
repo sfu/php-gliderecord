@@ -1,0 +1,19 @@
+{
+	"name": "sfu/php-gliderecord",
+	"type": "library",
+	"description": "PHP API for ServiceNow GlideRecord",
+	"keywords": ["ServiceNow", "GlideRecord", "Glide"],
+	"license": "MIT",
+	"authors": [{
+		"name": "Mike Sollanych",
+		"email": "msollany@sfu.ca"
+	}],
+	"autoload": {
+		"psr-0": {
+			"SFU\\GlideRecord": "src"
+		}
+	},
+	"require": {
+		"guzzlehttp/guzzle": "^6.0"
+	}
+}
