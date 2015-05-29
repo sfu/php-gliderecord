@@ -9,9 +9,9 @@
 		"email": "msollany@sfu.ca"
 	}],
 	"autoload": {
-		"psr-0": {
-			"SFU\\GlideRecord": "src"
-		}
+	  "psr-4": {
+            "SFU\\": "src"
+        }
 	},
 	"require": {
 		"guzzlehttp/guzzle": "^6.0"
