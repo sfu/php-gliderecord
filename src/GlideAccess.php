@@ -18,12 +18,13 @@ class GlideAccess {
 	protected static $glideaccess = false;
 	protected $client;
 	protected $base_uri;
+	protected $debug;
 	
 	const API_VERSION = "v1";
 	const TIMEOUT = 20;
 	
-	public static function init($server, $username, $password) {
-		$glideaccess = new GlideAccess($server, $username, $password);
+	public static function init($server, $username, $password, $debug = false) {
+		$glideaccess = new GlideAccess($server, $username, $password, $debug);
 		self::$glideaccess = $glideaccess;
 	}
 	
@@ -32,8 +33,10 @@ class GlideAccess {
 		else throw new GlideAccessException("GlideAccess not initialized!");
 	}
 		
-	protected function __construct($server, $username, $password) {
+	protected function __construct($server, $username, $password, $debug = false) {
 		
+		
+		$this->debug = $debug;
 		$base_uri = "https://".$server.'/api/now/'.self::API_VERSION.'/';
 		
 		if (!filter_var($base_uri, FILTER_VALIDATE_URL)) throw new GlideAccessException("Invalid server name: $server");
@@ -55,9 +58,7 @@ class GlideAccess {
 	 *  Simple logging function
 	 */
 	protected function log($severity, $message) {
-		
-		// Todo, improve this with dependency injection
-		print ("\n".date("Y-m-d H:i:s")." - $severity $message");
+		if ($this->debug) print("\n".date("Y-m-d H:i:s")." - $severity $message");
 	}
 	
 	/**
