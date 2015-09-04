@@ -160,7 +160,7 @@ class GlideRecord implements \Iterator, \Countable, \ArrayAccess {
 	 */
 	public function get($sysid_or_field, $value = false) {
 	
-		$this->initalize();
+		$this->initialize();
 	
 		// if value, then it's a field, if not, then it's a sysid 
 		if (!$value) {
